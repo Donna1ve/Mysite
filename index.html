@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DV ONLINE LTD | Business & IT Consulting</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fefefe;
+      color: #222;
+      font-size: 18px;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #006b3f;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      z-index: 1000;
+      box-sizing: border-box;
+    }
+
+    header h1 {
+      color: #ffeb3b;
+      font-size: 26px;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffeb3b;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 25px;
+      }
+
+      nav {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 10px;
+      }
+
+      nav a {
+        font-size: 17px;
+      }
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 100px 80px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 50, 0, 0.6);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+
+    .hero h2 {
+      font-size: 60px;
+      color: #ffeb3b;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 22px;
+      line-height: 1.6;
+    }
+
+    /* ===== GENERAL SECTION STYLE ===== */
+    .about, .services, .advantages, .process, .contact-form, .contacts {
+      background-color: #fffde7;
+      border-left: 10px solid #006b3f;
+      margin-bottom: 40px;
+      border-radius: 8px;
+    }
+
+    .section-title {
+      color: #006b3f;
+      font-size: 36px;
+      margin-bottom: 30px;
+      border-bottom: 4px solid #ffeb3b;
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+
+    /* ===== ABOUT ===== */
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .about img {
+      width: 45%;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .about-content {
+        flex-direction: column;
+      }
+      .about img {
+        width: 100%;
+      }
+    }
+
+    /* ===== SERVICES / ADVANTAGES / PROCESS ===== */
+    .services-grid, .advantages-grid, .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .service, .advantage, .process-step {
+      background-color: #e8f5e9;
+      border: 2px solid #006b3f;
+      border-radius: 10px;
+      padding: 25px;
+      transition: transform 0.3s;
+    }
+
+    .service:hover, .advantage:hover, .process-step:hover {
+      transform: translateY(-5px);
+    }
+
+    .service h3, .advantage h3, .process-step h3 {
+      color: #006b3f;
+      margin-bottom: 10px;
+    }
+
+    /* ===== FORM ===== */
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 15px;
+      font-size: 18px;
+      border: 2px solid #006b3f;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    button {
+      background-color: #006b3f;
+      color: #ffeb3b;
+      border: none;
+      padding: 15px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #004d29;
+    }
+
+    /* ===== CONTACTS ===== */
+    .contacts {
+      background: #006b3f;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 120px 80px;
+      flex-wrap: wrap;
+    }
+
+    .contacts img {
+      width: 45%;
+      border-radius: 10px;
+      min-width: 300px;
+    }
+
+    .contacts-content {
+      max-width: 50%;
+      min-width: 300px;
+    }
+
+    .contacts h3 {
+      color: #ffeb3b;
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .contacts p {
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .contacts {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .contacts-content {
+        max-width: 100%;
+      }
+
+      .contacts img {
+        width: 100%;
+      }
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: #004d29;
+      color: #ffeb3b;
+      text-align: center;
+      padding: 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>DV ONLINE LTD</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#advantages">Why Us</a>
+      <a href="#process">Our Process</a>
+      <a href="#contact-form">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h2>DV ONLINE LTD</h2>
+      <p>We provide strategic management consulting, business optimization, and IT support that help companies adapt, grow, and thrive in today’s fast-changing market. Our mission is to connect strategy, technology, and people to deliver measurable results.</p>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2 class="section-title">Who We Are</h2>
+    <div class="about-content">
+      <div>
+        <p>At DV ONLINE LTD, we combine years of consulting expertise with innovative thinking. Our consultants help organizations redefine their business strategies, streamline operations, and implement reliable IT solutions. We focus on measurable outcomes, ensuring every recommendation leads to real improvement. Our team works closely with clients across industries, creating customized solutions that align with business goals and long-term success.</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1556761175-129418cb2dfe?auto=format&fit=crop&w=900&q=80" alt="About DV ONLINE LTD">
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <h2 class="section-title">Our Expertise</h2>
+    <div class="services-grid">
+      <div class="service">
+        <h3>Management Consulting</h3>
+        <p>We help organizations define strategic goals, improve performance, and achieve sustainable growth. Our approach blends analytical insights with practical execution to ensure results that last.</p>
+      </div>
+      <div class="service">
+        <h3>Business Consulting</h3>
+        <p>From operational optimization to digital transformation, we guide businesses toward higher efficiency and profitability. Every project is tailored to your unique challenges and objectives.</p>
+      </div>
+      <div class="service">
+        <h3>IT Support & Solutions</h3>
+        <p>We provide comprehensive IT support, including infrastructure setup, cloud solutions, and cybersecurity. Our team ensures your systems work seamlessly, securely, and efficiently.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="advantages" class="advantages">
+    <h2 class="section-title">Why Work With DV ONLINE LTD</h2>
+    <div class="advantages-grid">
+      <div class="advantage">
+        <h3>Result-Driven Approach</h3>
+        <p>Every recommendation is backed by data and designed to create tangible business value. We measure success through your success.</p>
+      </div>
+      <div class="advantage">
+        <h3>Experienced Professionals</h3>
+        <p>Our consultants have cross-industry experience, combining deep expertise in business and IT to provide well-rounded solutions.</p>
+      </div>
+      <div class="advantage">
+        <h3>Long-Term Partnership</h3>
+        <p>We focus on building lasting relationships based on trust, transparency, and measurable results. Your growth is our priority.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="process">
+    <h2 class="section-title">How We Work</h2>
+    <div class="process-grid">
+      <div class="process-step">
+        <h3>1. Understanding Your Business</h3>
+        <p>We begin with a deep analysis of your current operations, goals, and challenges to design the right strategy.</p>
+      </div>
+      <div class="process-step">
+        <h3>2. Strategy & Implementation</h3>
+        <p>Our experts create a clear roadmap, integrating business and IT solutions that lead to immediate improvement.</p>
+      </div>
+      <div class="process-step">
+        <h3>3. Continuous Support & Optimization</h3>
+        <p>We stay connected, monitoring results and fine-tuning solutions to ensure long-term success and stability.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact-form" class="contact-form">
+    <h2 class="section-title">Get In Touch</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <section class="contacts">
+    <div class="contacts-content">
+      <h3>Let's Work Together</h3>
+      <p>Reach out to us at <strong>welcome@dvonline.org</strong> for partnership opportunities or project inquiries.  
+      We believe every challenge hides a potential breakthrough — let's uncover it together.</p>
+      <p><strong>Address:</strong> 7 Riley Mews, Harlow CM17 0FA, UK</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 DV ONLINE LTD. All Rights Reserved.
+  </footer>
+</body>
+</html>
